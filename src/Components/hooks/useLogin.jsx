@@ -11,6 +11,7 @@ const useLogin = () => {
 
     if (token) {
       setUsername(user);
+      Navigate("/cashier");
     } else {
       Navigate("/");
     }

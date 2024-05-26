@@ -128,7 +128,7 @@ const FormLogin = () => {
       <p
         className={`${
           wrong ? "translate-y-4" : "hidden"
-        } text-sm xs:text-[1rem] text-center text-red-600`}
+        } text-sm xs:text-[1rem] text-center text-slate-900`}
       >
         Your Username or Password is wrong!
       </p>

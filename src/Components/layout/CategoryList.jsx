@@ -1,23 +1,37 @@
 import React, { useEffect, useState } from "react";
 import { getCategory } from "../../services/fetch.service";
+import { RiDrinks2Fill } from "react-icons/ri";
+import { GiFrenchFries } from "react-icons/gi";
+import { FaHamburger } from "react-icons/fa";
 
-const CategoryList = () => {
-  const [category, setCategory] = useState([]);
+const Icons = ({ icon }) => {
+  if (icon === "Food") return <FaHamburger />;
+  if (icon === "Bevarage") return <RiDrinks2Fill />;
+  if (icon === "Snack") return <GiFrenchFries />;
+
+  return;
+};
+
+const CategoryList = ({ handleByCategory }) => {
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
     getCategory((data) => {
-      setCategory(data);
+      setCategories(data);
     });
-  }, [category]);
+  }, []);
 
   return (
     <div className="category p-4 mb-4 flex justify-center items-center">
-      {category &&
-        category.map((list) => (
-          <button key={list.id} className="btn-primary">
-            {list.title}
-          </button>
-        ))}
+      {categories.map((category) => (
+        <button
+          key={category.id}
+          className="btn-primary flex items-center gap-4"
+          onClick={() => handleByCategory(category.id)}
+        >
+          <Icons icon={category.title} /> {category.title}
+        </button>
+      ))}
     </div>
   );
 };

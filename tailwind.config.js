@@ -19,6 +19,9 @@ export default {
       container: {
         center: true,
       },
+      borderWidth: {
+        1: "1px",
+      },
     },
   },
   plugins: [],

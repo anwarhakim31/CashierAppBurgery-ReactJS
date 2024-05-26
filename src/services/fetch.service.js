@@ -12,3 +12,25 @@ export const getCategory = (callback) => {
       console.log(error);
     });
 };
+
+export const getProduct = (callback) => {
+  axios
+    .get(URL + "/products")
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};
+
+export const getCart = (callback) => {
+  axios
+    .get(URL + "/keranjang")
+    .then((res) => {
+      callback(res.data);
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+};

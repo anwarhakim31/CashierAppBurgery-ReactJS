@@ -9,3 +9,9 @@
     @apply bg-slate-900  text-white px-2 py-2 text-xs md:text-lg md:px-4 md:py-2 rounded-md mx-2;
   }
 }
+
+@layer utilities {
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}

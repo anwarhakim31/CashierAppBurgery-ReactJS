@@ -1,6 +1,7 @@
 import React from "react";
 import AuthLayout from "../Components/layout/AuthLayout";
 import FormRegister from "../Components/fragments/FormRegister";
+import useLogin from "../Components/hooks/useLogin";
 
 const RegisterPage = () => {
   return (
