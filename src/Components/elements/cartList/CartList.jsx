@@ -26,13 +26,13 @@ const CartList = ({ list, handleEditCart }) => {
       onClick={() => handleEditCart(list.id)}
     >
       <h3 className="px-2 text-lg font-semibold select-none">
-        {list.product.nama}{" "}
-        <span className="font-medium">({list.product.kode})</span>{" "}
+        {list?.product?.nama}{" "}
+        <span className="font-medium">({list?.product?.kode})</span>{" "}
       </h3>
       <div className=" bg-slate-200 px-2">
         <p className="select-none">
           Category :{" "}
-          <span className="font-medium">{list.product.category.nama}</span>
+          <span className="font-medium">{list?.product?.category?.nama}</span>
         </p>
       </div>
       <div className="flex items-center justify-between px-2">

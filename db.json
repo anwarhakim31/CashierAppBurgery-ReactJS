@@ -221,109 +221,133 @@
       }
     }
   ],
-  "keranjang": [
+  "keranjang": [],
+  "pesanan": [
     {
-      "id": "5a62",
-      "Total_Harga": 20000,
-      "jumlah": 1,
-      "product": {
-        "id": "3",
-        "kode": "K-03",
-        "nama": "Fish Fillet Burger",
-        "harga": 20000,
-        "is_ready": true,
-        "gambar": "product-3.png",
-        "category": {
-          "id": 1,
-          "nama": "Food"
-        }
-      }
-    },
-    {
-      "Total_Harga": 18000,
-      "jumlah": 2,
-      "product": {
-        "id": "4",
-        "kode": "K-04",
-        "nama": "Black Burger",
-        "harga": 18000,
-        "is_ready": true,
-        "gambar": "product-4.png",
-        "category": {
-          "id": 1,
-          "nama": "Food"
+      "0": {
+        "id": "bc5e",
+        "Total_Harga": 20000,
+        "jumlah": 1,
+        "product": {
+          "id": "3",
+          "kode": "K-03",
+          "nama": "Fish Fillet Burger",
+          "harga": 20000,
+          "is_ready": true,
+          "gambar": "product-3.png",
+          "category": {
+            "id": 1,
+            "nama": "Food"
+          }
         }
       },
-      "id": "fecb",
-      "keterangan": "ssssss"
-    },
-    {
-      "Total_Harga": 14000,
-      "jumlah": 2,
-      "product": {
-        "id": "7",
-        "kode": "K-07",
-        "nama": "Signature Burger",
-        "harga": 14000,
-        "is_ready": true,
-        "gambar": "product-13.png",
-        "category": {
-          "id": 1,
-          "nama": "Food"
+      "1": {
+        "id": "8ace",
+        "Total_Harga": 20000,
+        "jumlah": 1,
+        "product": {
+          "id": "2",
+          "kode": "K-02",
+          "nama": "Chicken Crispy Burger",
+          "harga": 20000,
+          "is_ready": true,
+          "gambar": "product-2.png",
+          "category": {
+            "id": 1,
+            "nama": "Food"
+          }
         }
       },
-      "id": "1c2c"
-    },
-    {
-      "Total_Harga": 20000,
-      "jumlah": 2,
-      "product": {
-        "id": "2",
-        "kode": "K-02",
-        "nama": "Chicken Crispy Burger",
-        "harga": 20000,
-        "is_ready": true,
-        "gambar": "product-2.png",
-        "category": {
-          "id": 1,
-          "nama": "Food"
+      "2": {
+        "id": "2daa",
+        "Total_Harga": 16000,
+        "jumlah": 1,
+        "product": {
+          "id": "1",
+          "kode": "K-01",
+          "nama": "Double Beef Burger",
+          "harga": 16000,
+          "is_ready": true,
+          "gambar": "product-1.png",
+          "category": {
+            "id": 1,
+            "nama": "Food"
+          }
         }
       },
-      "id": "5d7a"
-    },
-    {
-      "Total_Harga": 9000,
-      "jumlah": 2,
-      "product": {
-        "id": "5",
-        "kode": "K-05",
-        "nama": "Cheap Burger",
-        "harga": 9000,
-        "is_ready": true,
-        "gambar": "product-5.png",
-        "category": {
-          "id": 1,
-          "nama": "Food"
+      "3": {
+        "id": "d17b",
+        "Total_Harga": 18000,
+        "jumlah": 1,
+        "product": {
+          "id": "4",
+          "kode": "K-04",
+          "nama": "Black Burger",
+          "harga": 18000,
+          "is_ready": true,
+          "gambar": "product-4.png",
+          "category": {
+            "id": 1,
+            "nama": "Food"
+          }
         }
       },
-      "id": "1ee0"
-    },
-    {
-      "Total_Harga": 7000,
-      "jumlah": 2,
-      "product": {
-        "id": "15",
-        "kode": "K-015",
-        "nama": "Orange Juice",
-        "harga": 7000,
-        "is_ready": true,
-        "gambar": "drink-2.png",
-        "category": {
-          "id": 2,
-          "nama": "Bevarage"
+      "4": {
+        "id": "933c",
+        "Total_Harga": 9000,
+        "jumlah": 1,
+        "product": {
+          "id": "5",
+          "kode": "K-05",
+          "nama": "Cheap Burger",
+          "harga": 9000,
+          "is_ready": true,
+          "gambar": "product-5.png",
+          "category": {
+            "id": 1,
+            "nama": "Food"
+          }
         }
       },
-      "id": "2208"
+      "5": {
+        "id": "c2bc",
+        "Total_Harga": 7000,
+        "jumlah": 1,
+        "product": {
+          "id": "14",
+          "kode": "K-014",
+          "nama": "Manggo Juice",
+          "harga": 7000,
+          "is_ready": true,
+          "gambar": "drink-3.png",
+          "category": {
+            "id": 2,
+            "nama": "Bevarage"
+          }
+        }
+      },
+      "6": {
+        "id": "2e6c",
+        "Total_Harga": 7000,
+        "jumlah": 1,
+        "product": {
+          "id": "15",
+          "kode": "K-015",
+          "nama": "Orange Juice",
+          "harga": 7000,
+          "is_ready": true,
+          "gambar": "drink-2.png",
+          "category": {
+            "id": 2,
+            "nama": "Bevarage"
+          }
+        }
+      },
+      "id": "827a",
+      "Nama_Pemesan": "hakim",
+      "Total_Bayar": 97000,
+      "Uang_cash": "200000",
+      "kembalian": "200000"
     }
   ]
 }

@@ -76,7 +76,7 @@ const ModalDialog = forwardRef((props, ref) => {
   };
 
   const handleDeleteFromCart = () => {
-    axios.delete(URL + "/keranjang/" + isIdEdit).catch((error) => {
+    axios.delete(URL + "/keranjang/").catch((error) => {
       console.log(error);
     });
 

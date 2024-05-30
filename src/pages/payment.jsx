@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Navbar from "../Components/layout/Navbar";
-import { Rupiah } from "../services/constant.service";
+import { Rupiah, URL } from "../services/constant.service";
 import { getCart } from "../services/fetch.service";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const PaymentPage = () => {
   const [inCart, setInCart] = useState([]);
   const [orderName, setOrderName] = useState("");
-  const { cash, setCash } = useState(null);
+  const [cashValue, setCashValue] = useState(null);
   const [confirmedValue, setConfirmedValue] = useState(0);
 
   useEffect(() => {
@@ -24,18 +26,53 @@ const PaymentPage = () => {
     setConfirmedValue(event.target.value);
   };
 
-  console.log(confirmedValue < sum);
+  const handleToBack = () => {
+    window.location.href = "/cashier";
+  };
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const data = {
+      Nama_Pemesan: orderName,
+      Total_Bayar: sum,
+      Uang_cash: cashValue,
+      kembalian: confirmedValue - sum,
+      ...inCart,
+    };
+
+    try {
+      await axios.post(URL + "/pesanan/", data);
+      inCart.forEach((item) => {
+        axios.delete(URL + "/keranjang/" + item.id);
+      });
+
+      setInCart([]);
+
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Payment Success",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+
+      setTimeout(() => {
+        window.location.href = "/cashier";
+      }, 1000);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <Navbar />
-      <div className="pt-28  max-w-[960px] mx-auto p-4 flex justify-between  gap-2">
+      <div className="pt-[100px] max-w-[960px] mx-auto p-4 flex justify-between  gap-2">
         <div className="payment text-center w-1/2 lg:w-4/6 mx-4">
           <h1 className="font-medium text-xl lg:text-3xl text-center ">
             Payment
           </h1>
 
-          <form className="px-6 py-2 mt-4">
+          <form className="px-6 py-2 mt-4" onSubmit={handleSubmit}>
             <div className="flex items-center flex-wrap lg:flex-nowrap justify-between gap-1 lg:gap-4 mb-2">
               <label
                 htmlFor="orderer"
@@ -48,6 +85,7 @@ const PaymentPage = () => {
                 value={orderName}
                 type="text"
                 id="orderer"
+                required
                 className="border-1 border-slate-900 px-1 lg:px-2 lg:py-1 max-w-96 w-full rounded-sm"
               />
             </div>
@@ -65,14 +103,15 @@ const PaymentPage = () => {
                 Amount Paid :{" "}
               </label>
               <input
-                onChange={(e) => setCash(e.target.value)}
-                value={cash}
+                onChange={(e) => setCashValue(e.target.value)}
                 onBlur={handleBlur}
                 type="number"
                 id="orderer"
                 className="border-1 border-slate-900 px-1 lg:px-2 lg:py-1 max-w-96 w-full rounded-sm"
+                required
               />
             </div>
+
             <div className="flex items-center flex-wrap lg:flex-nowrap gap-1 lg:gap-4 mb-2">
               <h2 className="font-medium text-xs lg:text-lg">
                 Change Given :{" "}
@@ -82,9 +121,23 @@ const PaymentPage = () => {
                   Rupiah(0)}
               </span>
             </div>
+            <div className="flex items-center flex-wrap lg:flex-nowrap  mt-10 gap-4 lg:gap-4 mb-2">
+              <button
+                className="px-8 py-2 bg-red-600 rounded-md text-white"
+                onClick={handleToBack}
+              >
+                Back
+              </button>
+              <button
+                type="submit"
+                className="px-8 py-2 bg-blue-600 rounded-md text-white"
+              >
+                Pay
+              </button>
+            </div>
           </form>
         </div>
-        <div className="order w-1/2 lg:w-1/3">
+        <div className="order w-1/2 lg:w-1/3 px-4">
           <h1 className="font-medium text-xl lg:text-3xl text-center ">
             Order
           </h1>
