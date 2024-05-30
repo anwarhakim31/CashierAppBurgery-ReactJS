@@ -12,8 +12,9 @@ const Icons = ({ icon }) => {
   return;
 };
 
-const CategoryList = ({ handleByCategory }) => {
+const CategoryList = ({ handleByCategory, id }) => {
   const [categories, setCategories] = useState([]);
+  const [idF, setIdF] = useState(1);
 
   useEffect(() => {
     getCategory((data) => {
@@ -22,12 +23,17 @@ const CategoryList = ({ handleByCategory }) => {
   }, []);
 
   return (
-    <div className="category p-4 mb-4 flex justify-center items-center">
+    <div className="category p-4 mb-4 flex justify-center items-center flex-wrap gap-2">
       {categories.map((category) => (
         <button
           key={category.id}
-          className="btn-primary flex items-center gap-4"
-          onClick={() => handleByCategory(category.id)}
+          className={`${
+            category.id == idF ? "bg-orange-500" : "bg-slate-900"
+          } btn-primary flex items-center gap-4`}
+          onClick={() => {
+            handleByCategory(category.id);
+            setIdF(category.id);
+          }}
         >
           <Icons icon={category.title} /> {category.title}
         </button>

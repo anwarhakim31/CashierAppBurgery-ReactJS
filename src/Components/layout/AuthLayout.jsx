@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "../../assets/images/logo2.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const AuthLayout = (props) => {
+  const Navigate = useNavigate();
+
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    if (token) {
+      Navigate("/cashier");
+    }
+  }, []);
+
   const { children, type, title } = props;
   return (
     <div className=" max-w-sreen  min-h-screen flex justify-center items-center font-inter">

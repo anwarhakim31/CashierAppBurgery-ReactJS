@@ -1,36 +1,45 @@
 import React, { useEffect, useState } from "react";
-import useLogin from "../hooks/useLogin";
+import useLogin from "../../assets/hooks/useLogin";
 import Button from "../elements/button";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { FaCartShopping } from "react-icons/fa6";
 import { getCart } from "../../services/fetch.service";
+import { useSelector } from "react-redux";
 
 const Navbar = (props) => {
-  const { handleCartOpen, id, increament } = props;
-  const [cartLength, setCartLength] = useState("");
+  const location = useLocation();
+  const pathName = location.pathname;
+
+  const { handleCartOpen } = props;
+  const [cartLength, setCartLength] = useState([]);
+  const cart = useSelector((state) => state.cart.data);
 
   const username = useLogin();
   const Navigate = useNavigate();
 
-  useEffect(() => {
-    getCart((data) => {
-      setCartLength(data);
-    });
-  }, [id]);
+  // useEffect(() => {
+  //   getCart((data) => {
+  //     setCartLength(data);
+  //   });
+  // }, [cart]);
 
   const handleLogout = () => {
     localStorage.removeItem("token");
     Navigate("/");
   };
 
+  const sum = cart.reduce((acc, item) => {
+    return acc + item.jumlah;
+  }, 0);
+
   return (
     <header className="w-full bg-red-600 p-4 fixed z-10">
-      <div className="lg:container flex justify-between items-center">
+      <div className="max-w-[1280px] mx-auto flex justify-between items-center">
         <img
           src={logo}
           alt="logo"
-          className="block lg:w-[60px] lg:h-[60px] w-[45px] h-[45px]"
+          className="mx-4 block lg:w-[60px] lg:h-[60px] w-[45px] h-[45px]"
         />
         <div className="extra flex items-center">
           <span className="text-white first-letter:uppercase text-xs md:text-lg">
@@ -43,11 +52,13 @@ const Navbar = (props) => {
             Logout
           </button>
           <button
-            className="btn-primary relative  rounded-full w-6 h-6 md:w-10 md:h-10 grid place-content-center"
+            className={`${
+              pathName === "/payment" ? "hidden" : ""
+            } btn-primary relative  rounded-full  w-10 h-10 grid place-content-center`}
             onClick={handleCartOpen}
           >
-            <small className="absolute -bottom-2 left-1 text-white font-bold">
-              {cartLength.length}
+            <small className="absolute -bottom-3 left-2 text-white font-bold">
+              {sum}
             </small>{" "}
             <FaCartShopping />
           </button>

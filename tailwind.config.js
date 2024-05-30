@@ -8,7 +8,7 @@ export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      xs: "375px",
+      xs: "567px",
 
       ...defaultTheme.screens,
     },
