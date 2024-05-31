@@ -45,7 +45,7 @@ const CartFragment = (props) => {
       </header>
       <div className="h-[80vh] overflow-y-auto ">
         <ul className="mb-[10%] mt-2 relative">
-          {inCart.length === 0 && (
+          {data.length === 0 && (
             <li className="text-center">
               <img
                 src={emptyLogo}

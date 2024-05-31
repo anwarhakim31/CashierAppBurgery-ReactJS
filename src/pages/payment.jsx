@@ -6,12 +6,14 @@ import { getCart } from "../services/fetch.service";
 import axios from "axios";
 import Swal from "sweetalert2";
 import logo from "../assets/images/logo2.png";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const PaymentPage = () => {
   const [inCart, setInCart] = useState([]);
   const [orderName, setOrderName] = useState("");
   const [cashValue, setCashValue] = useState(null);
   const [confirmedValue, setConfirmedValue] = useState(0);
+  const Navigate = useNavigate();
 
   useEffect(() => {
     getCart((data) => {
@@ -28,7 +30,7 @@ const PaymentPage = () => {
   };
 
   const handleToBack = () => {
-    window.location.href = "/cashier";
+    Navigate("/cashier");
   };
 
   const handleSubmit = async (e) => {
@@ -58,7 +60,7 @@ const PaymentPage = () => {
       });
 
       setTimeout(() => {
-        window.location.href = "/cashier";
+        Navigate("/cashier");
       }, 1000);
     } catch (error) {
       console.log(error);
