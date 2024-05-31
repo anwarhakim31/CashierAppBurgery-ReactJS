@@ -6,10 +6,12 @@ import {
   handleLoginValidate,
 } from "../../services/validate.service";
 import { getUser } from "../../services/auth.service";
+import { useNavigate } from "react-router-dom";
 
 const FormLogin = () => {
   const [login, setLogin] = useState({ username: "", password: "" });
   const [error, setError] = useState({ username: "", password: "" });
+  const Navigate = useNavigate();
 
   const [wrong, setIsWrong] = useState(false);
   const [remember, setRemember] = useState(false);
@@ -81,7 +83,7 @@ const FormLogin = () => {
           localStorage.setItem("token", JSON.stringify(token));
           localStorage.setItem("profile", JSON.stringify(users.username));
 
-          window.location.href = "/cashier";
+          Navigate("/cashier");
         } else {
           setIsWrong(true);
           setTimeout(() => {

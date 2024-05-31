@@ -36,7 +36,7 @@ const CardList = (props) => {
   return (
     <li
       key={product.id}
-      className="relative bg-slate-100 rounded-md  mx-auto max-w-[250px] w-full  xs:max-w-full flex flex-col justify-between border-slate-800 border-2 p-4 "
+      className="relative bg-slate-100 rounded-md  mx-auto max-w-[250px] w-full  xs:max-w-full flex flex-col justify-between border-slate-800 border-1 p-4 "
     >
       <div className="mx-auto">
         <LazyLoadImage
