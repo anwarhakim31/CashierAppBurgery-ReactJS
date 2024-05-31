@@ -28,8 +28,6 @@ const CartFragment = (props) => {
     return acc + item.Total_Harga;
   }, 0);
 
-  console.log(inCart.length !== 0);
-
   return (
     <div
       className={`${
@@ -62,15 +60,11 @@ const CartFragment = (props) => {
             </li>
           )}
 
-          {inCart.length > 0 &&
-            [...inCart]
+          {data.length > 0 &&
+            [...data]
               .reverse()
-              .map((list) => (
-                <CartList
-                  handleEditCart={handleEditCart}
-                  key={list.id}
-                  list={list}
-                />
+              .map((list, i) => (
+                <CartList handleEditCart={handleEditCart} key={i} list={list} />
               ))}
         </ul>
       </div>

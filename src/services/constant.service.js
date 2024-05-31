@@ -1,4 +1,4 @@
-export const URL = `http://localhost:3000`;
+export const URL = `https://burgery-api.onrender.com`;
 
 export const Rupiah = (number) => {
   return new Intl.NumberFormat("id-ID", {

@@ -9,8 +9,6 @@ const useLogin = () => {
     const user = JSON.parse(localStorage.getItem("profile"));
     const token = localStorage.getItem("token");
 
-    console.log(token);
-
     if (token) {
       setUsername(user);
       // Navigate("/cashier");

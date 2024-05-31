@@ -13,7 +13,7 @@ const ProductFragment = (props) => {
   }, [productList, id]);
 
   return (
-    <ul className="font-inter grid grid-cols-1 gap-6 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 md:gap-8 md:p-4">
+    <ul className="font-inter grid grid-cols-1 gap-6 xs:grid-cols-3 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-4 md:gap-8 md:p-4">
       {filtered &&
         filtered.map((product) => (
           <CardList

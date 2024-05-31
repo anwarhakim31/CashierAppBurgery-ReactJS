@@ -54,10 +54,10 @@ const Navbar = (props) => {
           <button
             className={`${
               pathName === "/payment" ? "hidden" : ""
-            } btn-primary relative  rounded-full  w-10 h-10 grid place-content-center`}
+            } btn-primary relative  rounded-full  lg:w-10 lg:h-10 grid place-content-center`}
             onClick={handleCartOpen}
           >
-            <small className="absolute -bottom-3 left-2 text-white font-bold">
+            <small className="absolute -bottom-2 left-1 text-white font-bold">
               {sum}
             </small>{" "}
             <FaCartShopping />
