@@ -30,13 +30,13 @@ const CartList = ({ list, handleEditCart }) => {
         <span className="font-medium">({list?.product?.kode})</span>{" "}
       </h3>
       <div className=" bg-slate-200 px-2">
-        <p className="select-none">
+        <p className="select-none font-semibold">
           Category :{" "}
           <span className="font-medium">{list?.product?.category?.nama}</span>
         </p>
       </div>
       <div className="flex items-center justify-between px-2">
-        <p className="select-none">
+        <p className="select-none font-semibold">
           Total Price :{" "}
           <span className="font-medium">{Rupiah(list.Total_Harga)}</span>
         </p>
@@ -45,7 +45,7 @@ const CartList = ({ list, handleEditCart }) => {
         </p>
       </div>
       <CiTrash
-        className="absolute top-2 right-2 text-2xl"
+        className="absolute top-2 right-2 text-2xl hover:stroke-red-500 hover:fill-red-600"
         onClick={(e) => handleDeleteFromCart(e)}
       />
     </li>

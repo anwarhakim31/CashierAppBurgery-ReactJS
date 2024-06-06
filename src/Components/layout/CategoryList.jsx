@@ -23,13 +23,13 @@ const CategoryList = ({ handleByCategory, id }) => {
   }, []);
 
   return (
-    <div className="category p-4 mb-4 flex justify-center items-center flex-wrap gap-2">
+    <div className="category p-4 mb-2 flex justify-center items-center flex-wrap gap-2">
       {categories.map((category) => (
         <button
           key={category.id}
           className={`${
-            category.id == idF ? "bg-orange-500" : "bg-slate-900"
-          } btn-primary flex items-center gap-4`}
+            category.id == idF ? "bg-orange-400" : "bg-slate-900"
+          } btn-primary flex py-2 px-4 text-sm items-center gap-4`}
           onClick={() => {
             handleByCategory(category.id);
             setIdF(category.id);

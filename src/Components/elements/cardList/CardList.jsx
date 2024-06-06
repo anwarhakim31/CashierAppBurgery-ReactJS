@@ -36,28 +36,28 @@ const CardList = (props) => {
   return (
     <li
       key={product.id}
-      className="relative bg-slate-100 rounded-md  mx-auto max-w-[250px] w-full  xs:max-w-full flex flex-col justify-between border-slate-800 border-1 p-4 "
+      className="relative bg-slate-100 rounded-xl  col-span-full xxs:col-span-2 xs:col-span-4 md:col-span-3 lg:col-span-3 xl:col-span-2    xs:max-w-full flex flex-col justify-between border-slate-800 border-1 p-4 "
     >
-      <div className="mx-auto">
+      <div className="w-32 h-32  overflow-hidden mx-auto">
         <LazyLoadImage
           src={`./product/${product.gambar}`}
           alt={product.nama}
           effect="blur"
-          className="block w-[100px] h-[100px] md:w-[150px] md:h-[150px] "
+          className="block w-full h-full object-contain object-center"
           placeholderSrc={placeholder}
         />
       </div>
 
-      <div className="content  h-full flex flex-col">
-        <h3 className="font-semibold text-xs md:text-xl">{product.kode}</h3>
-        <h1 className="font-bold  text-sm md:text-xl py-2">{product.nama}</h1>
-        <p className="font-medium text-xs md:text-lg">
+      <div className="content   flex flex-col">
+        <h3 className="font-semibold text-xs md:text-sm">{product.kode}</h3>
+        <h1 className="  text-sm  font-bold py-2">{product.nama}</h1>
+        <p className="font-medium text-xs md:text-sm">
           {Rupiah(product.harga)}
         </p>
       </div>
 
       <button
-        className="mt-8 flex items-center bg-red-600 px-2 py-1  md:px-4 md:py-2 text-white w-fit rounded-md"
+        className="mt-4 flex items-center bg-red-600 px-4 py-1 text-sm  md:px-4 md:py-1.5 text-white w-fit rounded-xl"
         onClick={() => HandleAddProduct(product)}
       >
         <span>

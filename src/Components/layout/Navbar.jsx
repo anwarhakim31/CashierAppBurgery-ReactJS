@@ -42,19 +42,19 @@ const Navbar = (props) => {
           className="mx-4 block lg:w-[60px] lg:h-[60px] w-[45px] h-[45px]"
         />
         <div className="extra flex items-center">
-          <span className="text-white first-letter:uppercase text-xs md:text-lg">
+          <span className="text-white first-letter:uppercase text-xs md:text-sm">
             {username}
           </span>
           <button
             onClick={handleLogout}
-            className="bg-slate-900  text-white px-2 py-1 text-xs md:text-lg md:px-3 md:py-1 rounded-md mx-4"
+            className="bg-slate-900  text-white px-2 py-1 text-xs md:text-sm  md:px-4 md:py-1 rounded-md mx-4"
           >
             Logout
           </button>
           <button
             className={`${
               pathName === "/payment" ? "hidden" : ""
-            } btn-primary relative  rounded-full  lg:w-10 lg:h-10 grid place-content-center`}
+            } btn-primary relative  rounded-full  lg:w-8 lg:h-8 grid text-sm place-content-center`}
             onClick={handleCartOpen}
           >
             <small className="absolute -bottom-2 left-1 text-white font-bold">

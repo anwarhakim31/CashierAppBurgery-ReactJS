@@ -69,7 +69,7 @@ const CartFragment = (props) => {
         </ul>
       </div>
       <div className={`${inCart.length === 0 ? "hidden" : ""}`}>
-        <h1 className="mt-2 font-bold text-xl">
+        <h1 className="mt-2 font-bold text-lg">
           Total Payment : <span>{inCart && Rupiah(TotalBayar)}</span>{" "}
         </h1>
         <button
